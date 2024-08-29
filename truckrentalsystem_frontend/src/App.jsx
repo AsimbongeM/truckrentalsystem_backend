@@ -21,6 +21,9 @@ import TruckTypes from "./components/manager/TruckTypes.jsx";
 import ImagesComponent from "./components/manager/ImagesComponent.jsx";
 import InsuranceList from "./components/manager/InsuranceList.jsx";
 
+import CustomerHome  from "./components/CustomerHome.jsx";
+
+
 function App() {
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const [visible, setVisible] = useState(true);
@@ -44,11 +47,19 @@ function App() {
                     <Routes>
                         <Route exact path="/" element={<Home />} />
                         <Route path="/home" element={<Home />} />
-                        <Route path="/rent-trucks" element={<Renttrucks />} />
                         {/*<Route path="/manager-portal/dashboard" element={<ManagerPortal />} />*/}
                         <Route path="/about-us" element={<AboutUs />} />
-                        <Route path="/branches" element={<Branches />} />
+                        <Route path="/branches" element={<Branches />} />S
 
+                        {/* Customer routes*/}
+                        <Route path="/customer/*" element={<CustomerHome/>}>
+                            <Route path="dashboard" element={<div>Dashboard Content</div>}/>
+                            <Route path="/update-customer/:customerID" element={<CustomerComponent />} />
+                            <Route path="/customer-sign-up" element={<CustomerSignUp />} />
+                            <Route path="/customer-profile" element={<CustomerProfile />} />
+                            <Route path="/get-quote/:truckId" element={<GetQuote />} />
+                            <Route path="/rent-trucks" element={<Renttrucks />} />
+                        </Route>
                         {/*---------MANAGER FUNCTIONALITY STARTS-----------*/}
                         <Route path="/manager-portal/*" element={<ManagerPortal/>}>
                             <Route path="dashboard" element={<div>Dashboard Content</div>}/>
@@ -64,10 +75,7 @@ function App() {
                         <Route path="/contact-us" element={<ContactUs />} />
                         <Route path="/sign-in" element={<SignInComponent />} />
                         <Route path="/sign-up" element={<SignUpComponent />} />
-                        <Route path="/update-customer/:customerID" element={<CustomerComponent />} />
-                        <Route path="/customer-sign-up" element={<CustomerSignUp />} />
-                        <Route path="/customer-profile" element={<CustomerProfile />} />
-                        <Route path="/get-quote/:truckId" element={<GetQuote />} />
+
                     </Routes>
                 </div>
                 {/*<FooterComponent />*/}
