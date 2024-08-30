@@ -19,6 +19,7 @@ import TruckTypes from "./components/manager/TruckTypes.jsx";
 import ImagesComponent from "./components/manager/ImagesComponent.jsx";
 import InsuranceList from "./components/manager/InsuranceList.jsx";
 import ManagerContactUs from "./components/manager/ManagerContactUs.jsx";
+import CustomerHome from "./components/CustomerHome.jsx";
 
 function App() {
     const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -46,6 +47,7 @@ function App() {
                         <Route path="/about-us" element={<AboutUs />} />
                         <Route path="/branches" element={<Branches />} />
 
+                        <Route path="/customer-home" element={<CustomerHome />} />
                         {/*---------MANAGER FUNCTIONALITY STARTS-----------*/}
                         <Route path="/manager-portal/*" element={<ManagerPortal/>}>
                             <Route path="dashboard" element={<div>Dashboard Content</div>}/>
