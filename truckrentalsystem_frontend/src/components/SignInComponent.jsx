@@ -44,7 +44,7 @@ const SignInComponent = () => {
 
             if (customerResponse.status === 200 && customerResponse.data) {
                 setAuth(customerResponse.data);
-                navigate("/customer-profile");
+                navigate("/customer-home");
             } else {
                 setError('Invalid email or password');
             }
