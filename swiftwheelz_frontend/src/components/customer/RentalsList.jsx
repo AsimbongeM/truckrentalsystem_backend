@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { Alert, Button, Card, Col, Container, Modal, Row, Spinner, Form } from 'react-bootstrap';
-import { getRentalsList, updateRental, cancelRental } from "../../services/RentTructService.js";
+import { getRentalsByCustomerId, updateRental, cancelRental } from "../../services/RentTructService.js";
 import { getAllBranches } from '../../services/BranchService.js';
 import { getCustomerById } from '../../services/CustomerProfileService.js';
 import { AuthContext } from "../AuthContext.jsx";
@@ -57,7 +57,7 @@ const RentedTrucksList = () => {
         setLoading(true);
         try {
             if (thisUser?.customerID) {
-                const response = await getRentalsList(thisUser.customerID);
+                const response = await getRentalsByCustomerId(thisUser.customerID);
                 const rentalData = response; 
                 const activeRentals = rentalData.filter(rental => rental.status === 'ACTIVE');
                 setRentals(rentalData);
